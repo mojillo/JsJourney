@@ -1,0 +1,94 @@
+Git - online version control system 
+Track / clone / backup changes on centralized server with multiple access points 
+
+1 Installation
+  git install from git-scm.com
+
+2 Configure 
+  git config --global user.name "value" 	// user name	
+  git config --global user.email "value"	// user email
+
+  git --version  // check version
+  github != git 
+
+3 Make local files 
+  mkdir a && cd a  // makes a new folder for storing git data
+  git init	// makes a new repo with hidden .files on local machine
+  git remote add origin "github address.git" // makes online repo on gh
+
+  touch abc	// make new files / folders
+
+4 Save changes to repo
+  git status	// shows branch and whats updated and not
+  git add abc	// uploads abc to staging area
+  git add -all	// for multiple files in same folder 
+  git commit -m "reason"	// commits file/s to repo on local machine
+  git push	// sends file to online repo ! use QA !!
+
+5 Branching
+	// making changes to branches so live version remains untouched
+
+  git branch newabc	// makes a new branch named newabc
+  git branch 		// names all available branches
+  git checkout newabc	// moves user to newabc branch
+
+  commit / push as needed
+
+6 merging two branches 
+  git checkout master/main // move to main branch
+  git merge newabc	// brings changes from newabc to abc (main)
+  git branch -d newabc	// deletes newabc , use if needed 
+ 
+  Sometimes merge conflict occurs
+  git add filename	// Reverts file / code deletion
+  git rm filename	// Removes file from main branch
+
+  git commit -m "Conflict reason and work done " // always add reason for commit
+
+7 Pull & Push
+  git pull	// fetches and merges from remote repo & updates instantly
+  git fetch abc		// shows changes commited on remote 
+  git status		// shows difference between remote and local
+  git merge		// merges two branches
+  git diff abc/newabc	// shows difference of two
+  commit / push as needed
+
+8 Fork 
+		// to make changes to others project 
+  git clone remote.repo.git	// clone other's repo
+  git status			// check if uptodate
+  git log			// check if all data is available
+
+  git remote rename myabc	// change name 
+  git remote -v			// check remote status
+
+  git remote add myabc remote.repo.git	//set up as own fork
+  git remote -v			// check names 
+
+  As per conventions name own forked repo as origin and upstream is original
+
+9 Git Ignore
+  touch .gitignore		// makes a .file which contains list of file to be ignored from uploading 
+  vim .gitignore		// edit the file
+  
+  add names of files and folders to the file and it wont be uploaded on commit and push
+  # comments , name for files , name/ for folders and its content 
+  # wildcard char rules apply
+
+10 SSH over Https
+  ssh-keygen -t rsa -b 4096 -C "email"	// generates a new rsa key
+  clip < /Users/user/.ssh/id_rsa.pub	// copies the key to clipboard
+  
+  Github.com -> Settings -> SSH -> Add newly created key
+
+  ssh -T git@github.com			// press Y to connect
+  git remote add ssh-origin remote.git	// new address
+  git remote set-url origin remote.git	// transition from https to ssh
+  
+11 Undo changes
+  git reset		// clears staging area 
+  git log		// shows list of commits / push to revert back to
+  git revert HEAD --no-edit	// reverts back to previous version Head = 1,2
+  git commit --amend -m		// reverts last commit
+  
+
