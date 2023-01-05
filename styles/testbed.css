@@ -1,0 +1,37 @@
+div {
+    padding: 51px;
+    text-align: center ;
+    margin-bottom: 5px;
+  }
+  
+  .introduction {
+    background-color: #548CA8;
+    color: rgb(189, 243, 168);
+  }
+  
+  .main-content {
+    background-color: #476072;
+    color: rgb(189, 243, 158);
+  }
+  
+  .footer {
+    background-color: #406072;
+    color: rgb(189, 243, 148);
+  }
+  .contact-us {
+    background-color: #334257;
+    color: rgb(189, 243, 138);
+  }
+
+  .highlight {
+    background-color: rgb(22, 32, 17);
+  }
+
+  .container {
+    display: flex;
+  }
+  
+  .box {
+    flex: 1;
+  }
+  
